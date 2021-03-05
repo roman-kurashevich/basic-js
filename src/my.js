@@ -55,52 +55,11 @@
 
 
 
-function repeater(str, options) {
-  let result = '';
-  str = String(str);
-  let additionMy = '';
-  let repeattimesMy = 1;
-  let separatorMy = '+';
-  let additionRepeatTimesMy = 1;
-  let additionSeparatorMy = '|';
+function calculateHanoi(disksNumber, turnsSpeed) {
 
-  let addArray = [];
-  let allArray = [];
-
-  if (options.repeatTimes) {
-    repeattimesMy = options.repeatTimes;
-  }
-  if (options.additionRepeatTimes) {
-    additionRepeatTimesMy = options.additionRepeatTimes;
-  }
-  if (options.separator) {
-    separatorMy = options.separator;
-  }
-  if (options.additionSeparator) {
-    additionSeparatorMy = options.additionSeparator
-  }
-
-  if ((String(options.addition) == 'null')) {
-    additionMy = String(options.addition);
-    for (let i = 1; i <= additionRepeatTimesMy; i++) {
-      addArray.push(additionMy)
-    }
-  }
-  if ((options.addition || options.addition == false)) {
-    additionMy = String(options.addition);
-    for (let i = 1; i <= additionRepeatTimesMy; i++) {
-      addArray.push(additionMy)
-    }
-  }
-  for (let i = 1; i <= repeattimesMy; i++) {
-    if (addArray.length) {
-      allArray.push(str + addArray.join(additionSeparatorMy))
-    } else {
-      allArray.push(str)
-    }
-  }
-  return allArray.join(separatorMy)
+  let steps = 2 ** disksNumber - 1;
+  let time = Math.floor( 3600 / turnsSpeed * steps)
+  console.log({turns: steps, seconds: time})
 
 };
-console.log(repeater(null, { repeatTimes: 3, separator: '??? ', addition: null, additionRepeatTimes: 3, additionSeparator: '!!!' }))
-// console.log(addArray)
+calculateHanoi(5, 4074);
