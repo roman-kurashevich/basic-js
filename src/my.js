@@ -1,35 +1,90 @@
-// function calculateHanoi(disksNumber, turnsSpeed) {
-//   // if (disksNumber === 5 && turnsSpeed === 4074) {
-//   //   return {turns: 31,
-//   //         seconds: 27}
-    
-//   // }
-//   let steps = 2 ** disksNumber - 1;
-//   let time = Math.floor(turnsSpeed / 3600 * steps)
-//   return {turns: steps,
-//           seconds: time}
-  
-//   // remove line with error and write your code here
-// };
-// console.log( calculateHanoi(9, 4308) )
+
 // let max = 1;
 // let current = 1;
+// let some = 0;
+
+// let max = 1;
+// let current = 1;
+// let some = 1;
 
 // function calculateDepth(arr) {
+// // let some = 0;
+//   // some = some + 1;
+//   // current = some;
 //   for (let element of arr) {
+    
 //     if (Array.isArray(element)) {
       
+//       some = some + 1
 //       current = current + 1;
 //       calculateDepth(element);
-//     } else {
+//     } 
+//     // some = current;
+//       if (current > max) {
+        
+//         max = current;
+//       } 
+//       current = 1;
+//     }
+//     return max;
+// }
+let calc = 1;
+function calculateDepth(arr) {
+  if (arr.length === 0) return 1;
+  if (arr.find((item)=> Array.isArray(item))) {
+    arrNew = arr.reduce((arr2, item) => arr2.concat(item),[]);
+    calc = calc + 1;
+    calculateDepth(arrNew)
+    return calc;
+  }
+
+  // for (let el of arr) {
+
+  //   // if (Array.isArray(el)){
+  //   //   calc = calc + 1;
+  //   //   arr2 = arr.slice();
+  //   //   arr3 = arr2.reduce((array, item) => {array.concat(item)}, [])
+  //   //   calculateDepth()
+  //   // }
+  // }
+  // return calc;
+}
+console.log(calculateDepth([]))
+// let max = 1;
+// let current = 1;
+// let some = 0;
+
+// function calculateDepth(arr) {
+// arr.forEach(element => {
+//     if (Array.isArray(element)) {     
+//       current = current + 1;
+//       return calculateDepth(element);
+//     } 
 //       if (current > max) {
 //         max = current;
-//         current = 1;
-//       } 
-//     }
-//     return
-//   }
+//         // current = 1;
+//       }
+//   });
 //   return max;
+// }
+
+
+// deep = 1;
+// currentDeep = 1;
+
+//   calculateDepth(arr) {
+//       arr.forEach((el) => {
+//           if (Array.isArray(el)) {
+//               currentDeep++;
+//               calculateDepth(el);
+//           }
+//       });
+//       if (currentDeep > deep) {
+//           deep = currentDeep;
+//       }
+//       currentDeep--;
+//       return deep;
+//   }
 
   // arr.forEach(element => {
   //   if (Array.isArray(element)) {     
@@ -42,24 +97,5 @@
   //     } 
   //   }
   //   return
-
   // });
   // return max;
-
-// }
-  
-
-
-
-// console.log(calculateDepth([1, [8, [[]]], 2, 3, [8, [[[[[[[[[[[[[]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575',['adas', ['dfg', [0]]]]]))
-
-
-
-function calculateHanoi(disksNumber, turnsSpeed) {
-
-  let steps = 2 ** disksNumber - 1;
-  let time = Math.floor( 3600 / turnsSpeed * steps)
-  console.log({turns: steps, seconds: time})
-
-};
-calculateHanoi(5, 4074);
